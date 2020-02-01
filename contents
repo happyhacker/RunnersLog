@@ -1,0 +1,23 @@
+RUNNER'S LOG FILES
+
+CONTENTS        ** This file
+CONVERT.EXE     ** Converts old logs to new format
+HELP.DBF        ** Data base file for online help
+HELP.DBT        ** Needed by help.dbf
+MANUAL          ** Ascii file of instructions
+MANUAL.COM      ** Program to display manual
+RUN.DBF         ** Dbase file where runs are stored
+RUNCGA.PIC      ** Opening screen for cga monitors
+RUNEGA.PIC      ** Opening screen for ega/vga monitors
+RUNNER.EXE      ** Main program
+UTIL.DBF        ** Utility database
+
+If you are running Hacksoft's Runner's Log on a floppy disk and you
+are cramped for disk space, the following files are the only ones
+you must have to use the program.
+
+RUN.DBF or your log  Note: you could select your log from another drive.       
+RUNNER.EXE      
+DGE0906.STX
+DGE1108.STX
+RMN2828.STX

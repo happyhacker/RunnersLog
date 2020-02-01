@@ -1,0 +1,201 @@
+INTRODUCTION
+
+This program is written in Clipper. Therefore the run.dbf or any
+other log you create with Runner's Log can be accessed if you have
+Dbase III+ or a clone so you can further manipulate the information
+or export it to other formats.  I am a business programmer and have
+been running since I was twelve.  I ran the New York City Marathon
+when I was 15 and used Jim Fixx's Daily Log & Calendar to track my
+runs. At many times I wished there was some way to get averages for
+the week, month, etc. and list my runs by certain criteria so I
+developed the Runner's Log.  The program started out simple but
+grew into a commercial venture. If you have any ideas for
+improvements or additions drop me a note and maybe you'll see it in
+an update.  Larry Hack, HACKSOFT Inc. 3139 US 31 N Niles,  MI 49120 
+Telephone (219)282-3369 Work or:
+          (219)232-5057 Home or:
+          (616)683-7908 Contact    
+
+
+EDITING
+
+This is mainly useful when entering notes from selection #1 [Adding
+runs to the Runner's Log]. The <end> key takes you to the end of
+the line, the <Home> key takes you to the beginning of the line,
+the <PgUp> key takes you to the top of the notes, the <PgDn> key to
+the bottom. the <Ctrl> key plus Y erases to the end of the line and
+the <Ctrl> key plus U erases the entire line.  Some of these
+features are also available in selection #2 [Display or Print
+Specific Runs].  With the calendar you can insert any date into the
+field you are in.  The [Add Runs to the Runner's Log] defaults to
+todays date.  If you press F2 when you are on the date field, you
+can insert whatever date you choose.  Another good place to use the
+calendar is from the [Browse Through Runs] when you want to search
+for a particular date.  Move the cursor to the date field, press F3
+to bring up the search box and then press F2 to bring up the
+calendar.  Select the date you want to search for and press
+<Enter>. Use the arrow keys to move between days, <PgDn> to move to
+the next month, <PgUp> to move to the previous month, <Ctrl><PgDn>
+to move to the next year, and <Ctrl><PgUp> to move to the previous
+year. 
+
+
+THE MAIN MENU
+
+Use the arrow keys to highlight your selection and then press
+<Enter>, or simply press the first letter or number corresponding
+to that selection.  F1 brings up Help (where you are now), F2 pops
+up a calender.  If you have a monochrome monitor and are having
+trouble reading any of the screens, start Runner's Log by typing
+RUNNER M at the dos prompt. This will force the program to
+monochrome.
+
+
+1  ADD RUNS TO THE RUNNER'S LOG
+You will be presented with a screen that starts with the cursor on
+the date field.  This field will contain that days date. Press
+<Enter> to accept that date or change it to whatever date you want.
+You can press F2 to bring up a calender and use the cursor keys to
+select a date, <PgUp> to select previous month, <PgDn> to select
+next month, <Ctrl> <PgUp> to select previous year <Ctrl> <PgDn> to
+select the next year. Pressing <Enter> will put that date on the
+calendar into the date field on the run you are entering. After
+RACE enter T or F for true (yes, this is a race) or false (no it is
+not a race).  The next two fields are the distance in either miles
+or kilometer.  One of these must be entered, the other will be
+calculated.  The next field is the time. You don't have to enter
+anything here. If you don't, this runs time would not be averaged
+when you select [Display or Print Specific Runs] or [Display or
+Print All Runs] from the main menu. this ensures that you get an
+accurate average. The runs are still listed and it's distance added
+to the total distance. Next your asked if you want to enter your
+splits. This is for each mile's or kilometer's time or accumulated
+time. Next enter your weight.  This is used to figure your calorie
+count. Then you can enter notes on the run like, weather, where you
+ran, thoughts, etc.  Then your asked if you want to store the run
+to the Runner's Log. If you type "N" the run will not be stored.
+This allows for a "What-if", so you can test certain situations and
+get an average pace. 
+
+
+2  DISPLAY OR PRINT SPECIFIC RUNS
+
+This selection gives you a screen that you "fill in the blanks" to
+get a list of any combination of runs and their total combined
+distance and average pace. You can select from distance, ie; runs
+between 5 and 10 miles, Time, ie; under 1 hour, Dates, ie; all runs
+in June, 1989, And pace. You can select runs from any combination
+of these items. In front of the item is a 1 space field that you
+can place an operator. Greater than >, less than <, equal =, not
+equal # or press <Enter> for no search on that field. Pressing
+<Enter> for every field would give you every run.  You are then
+asked if you want the list for 1)Races 2)Workouts or 3) both.
+Simply select the one that you want. You may also have the list
+sorted by fastest to slowest average times. You can have the report
+sent to the screen or the screen and printer. 
+
+
+3  DISPLAY OR PRINT ALL RUNS
+
+Displays all runs, the date, their total distance, time, average
+pace, and if it is a race. 
+
+
+4  DISPLAY OR PRINT BEST TIMES
+
+You are asked here if you want the list for 1)Races 2)Workouts or 
+3)both.  Simply select the one that you want.  At the next prompt
+enter the distance that you want to see your best runs for.  Next,
+select the number of runs you want listed (the default is 10)  You
+will then be asked if you want a printed report also.  Type either
+"Y" or "N" for yes or no.  It will show you your fastest runs of
+that distance in order from fastest to slowest. For instance, if
+you entered 8 you would get a list of your top 8 mile runs and the
+record number, date, time, and pace for those runs in order from
+fastest to slowest to either the screen or the screen and printer. 
+
+
+5  PAGE THROUGH RUNS
+
+This is the most powerful option of Runner's Log.  From here you
+can browse through your runs, search on any field, tag runs for
+reporting, copying to another log, or deleting. Pressing <Enter>
+will switch you to a full screen edit of that run. Be careful, any
+of the data you change on this screen is permanent! When you select
+number 2 [Display or Print Specific Runs] from the main menu, the
+runs you select to display or print will be marked with a 'tag'. 
+For instance, if you select all 5 miles runs that are under 35
+minutes, when you go into [Browse Through Runs], the first field
+'Tag' will be marked with a û for those runs.  You can add or
+remove a run from being tagged by moving the hilight bar to that
+run and pressing the space bar.  As shown on the help box at the
+bottom of the screen, <Ctrl> T will tag all runs and <Ctrl> U will
+untag all runs.  The Search Box (F3) works differently depending on
+what field the hilight bar is on.  If you are on the date field and
+press F3 and type in 05/23/90, the hilight bar will move to the
+first run it finds on that date or on the last run of your log if
+that date does not exist.  If you search on the distance however,
+it will set a 'filter' to all runs of that distance.  That filter
+will stay in effect until you press the F3 key again.  You can
+leave the Search Box blank for no filter.  You can search on any
+field on this screen by moving the hilight bar to the field you
+want to search on and press F3.  Pressing F4 will give you a
+display or printout of all tagged runs.  Pressing F5 will allow you
+to copy all the tagged runs to a separate log.  You might want to
+do this to keep a separate log for each year as well as a complete
+log of all your runs.  Example; If you wanted a separate log of all
+your runs in 1989 you could select #2 [Display or Print Specific
+Runs] from the main menu, enter > for the first Operator, 12/31/88
+for the Starting Date, < for the Second Operator, and 01/01/90 for
+the Ending Date.  When you return to "Page through Runs" all runs
+in 1989 are tagged.  Press F5, type 1989 or any other name you want
+to give the log. It must be 8 characters or less, don't add an
+extension.  If you want to remove those records from your main log,
+press F7.  You will be asked if you want to delete the run the
+hilight bar is on, or all tagged.  You can resize the 'Browse Box'
+and move it anywhere on the screen as well.  To resize the box, use
+the numeric keypad with num-lock on.  8 increase the height of the
+box 2 decreases the height 6 increase the width of the box 4
+decreases the width  To move the box, turn caps lock on.  U moves
+the box up D moves the box down R moves the box right L moves the
+box left  S saves coordinates to the util.dbf 
+
+6  CREATE OR LOAD NEW LOG
+
+Select either "Create New Log" or "Load New Log".   For creating a
+new log, type in the name you want to give it.  The new log will be
+created in your current drive and directory.  Note: Do not include
+an extension.  For loading a log, type in the path where your logs
+are located.  Such as; 'a:\' or 'c:\logs\'.  If you leave it blank
+Runner's Log will look in the current directory.  A pop-up box with
+all files in that directory with a .dbf extension will let you pick
+and choose the log you want.  This feature is nice if you want to
+keep a separate log for each year. The program will run faster this
+way and it also keeps the logs from growing too big.  It's also
+nice for keeping logs for separate individuals like a club or team.
+Remember: The default log called "RUN" is always loaded when you
+start "Runner's Log".  The log that is in use is displayed at the
+top of the main menu. 
+
+
+7  DISPLAY OR PRINT GRAPHICS
+
+Select Line, Line/Bar, or Configure. Line will display a line chart
+for both average pace and distance. Line/Bar will display a line
+chart for the average pace and a bar chart for the distance. 
+Configure allows you to select text to be displayed for the title
+and whether to use miles or kilometers for graphing.  There are two
+buttons at the top of the screen, Print, and Exit.  If you have a
+mouse you can click on the button or you can press the underlined
+letter. P for print to run.pcx (PC Paintbrush file), X for exit. 
+[Display or Print Graphics] will graph all runs that are 'tagged'.
+Runs are tagged when they are printed from [Display or Print
+Specific Runs], [Display or Print All Runs], or they can also be
+tagged from [Browse Through Runs]. See help for [Browse Through
+Runs].
+
+
+8  EXIT RUNNER'S LOG
+
+Returns you to the operating system prompt.
+
