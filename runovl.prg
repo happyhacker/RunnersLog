@@ -44,6 +44,10 @@
 * Description: Fixed bug with calorie - caltime was 14.30 if time was 14:30
 *              Should be 14.50
 *.............................................................................
+* Revision: 4.4 Last Revised: 02/01/2020 at 12:47am
+* Description: Had to replace text in parameter for BOX in PAGE_RUN
+*              Corrupted?
+*.............................................................................
 ***************************** ALL RIGHTS RESERVED ****************************
 ***********************************************************************
 *!      Procedure: RUN1
@@ -66,8 +70,9 @@ BEGIN SEQUENCE
    SET KEY 27 TO EXIT
    SET CURSOR ON
    SETCOLOR(wbbrbg)
-   SET TALK OFF
+   SET Century ON
    CLEAR
+   SET Century ON
    STORE DATE() TO mdate
    STORE 0 TO mdistance, mhour, mminutes
    STORE 0 TO mfirst,msecond,mthird,mfourth,mfifth,msixth,mseventh,meighth
@@ -1025,8 +1030,8 @@ SET CURSOR ON
 SET FORMAT TO RUN
 Setcolor(wbbrbg)
 CLEAR
-@ 3, 4, 21, 75 BOX "ÚÄ¿³ÙÄÀ³ "
-@ 0, 2, 3, 77 BOX "ÉÍ»º¼ÍÈº "
+@  3, 4,21,75 BOX "?ƒø?Ÿƒ¿? "
+@  0, 2, 3,77 BOX "…Õª?ºÕ»? "
 @ 1, 30 SAY "R U N N E R' S  L O G"
 @ 4, 17 SAY "MILES:"+SPACE(10)+"KILOMETERS:"+SPACE(10)+"TIME:  :"
 @ 6, 6 SAY "1}"+SPACE(9)+"6}"+SPACE(9)+"11}"+SPACE(9)+"16}"+SPACE(9)+"21}"+SPACE(9)+"26}"

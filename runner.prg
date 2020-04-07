@@ -63,6 +63,10 @@
 *...................................................................*
 * Revision: 4.41 Modified on : 04-29-92 00:06:18am
 * Description:Build util.dbf if it doesn't exist
+*...................................................................*
+* Revision: 5.0 Modified on : 01/18/2020 6:26pm
+* Description:Build with Clipper5.2 on x86 emulator on Mac!
+*...................................................................*
 *========================[ ALL RIGHTS RESERVED ]====================*
 **** RUN THE AD PROGRAM ****
 EXTERNAL wndo, hackcal, dgedefs, runovl, run1, run2, run3, run4, run5, run6,;
@@ -134,7 +138,7 @@ ELSE
    brbg = "W/N"
 ENDIF
 
-xvid:=GETVIDEO(0)
+/*xvid:=GETVIDEO(0)
 IF xvid >= 6
    IF FILE('RUNEGA.PIC')
       DO dgedefs                                        && DGE
@@ -157,15 +161,16 @@ IF xvid==4
    ENDIF
 ENDIF
 SETTEXT()
+*/
 
 background=REPLICATE(CHR(176),9)
 shadow=REPLICATE(CHR(219),9)
 SETCOLOR(wbbrbg)
 @ 0,0,24,79 BOX background
 SETCOLOR(wbgwbr)
-DO wndo
-SPREAD("RUNNER'S LOG VERSION 4.41 BY HACKSOFT",6)
-SPREAD("LICIENCED TO: "+LTRIM(BLISERNUM()),8)
+//DO wndo
+SPREAD("RUNNER'S LOG VERSION 5.0 BY HACKSOFT",6)
+//SPREAD("LICIENCED TO: "+LTRIM(BLISERNUM()),8)
 SPREAD("COPYRIGHT (c) 1989, HACKSOFT ALL RIGHTS RESERVED",10)
 SPREAD("FOR TECHNICAL ASSISTANCE OR UPDATES CALL",11)
 SPREAD("(219)282-3369 OR (219)277-6993",12)
@@ -175,14 +180,14 @@ db:='RUN'
 USE_DB()
 INKEY(0)
 **** EOF AD.PRG ****
-BLIMEMPAK(10)                                 && BLINKER FUNCTION
+//BLIMEMPAK(10)                                 && BLINKER FUNCTION
 SET KEY -1 TO HACKCAL                         && CALANDER
 SET KEY 306 TO SHOWMEM                        && ALT-M
 SET KEY 274 TO ENV_STATUS                     && ALT-E
 
 DO WHILE .T.
-   BLIOVLCLR()
-   BLIMEMPAK(-1)
+//   BLIOVLCLR()
+//   BLIMEMPAK(-1)
    SET CURSOR OFF
 *  IF FILE('TITLE.SCR')
 *     BLINDOPEN('DRAPE.SCR')
@@ -231,9 +236,45 @@ DO WHILE .T.
    CASE choice = 8                          && EXIT
       SET CURSOR ON
       SETCOLOR(grb)
-      BLINDCLOSE()
+ //     BLINDCLOSE()
       RETURN
    ENDCASE
 ENDDO
+
+/*
+    Program: SPREAD()
+    System: GRUMPFISH LIBRARY
+    Author: Greg Lief
+    Copyright (c) 1988-93, Greg Lief
+    CA-Clipper 5.x version
+    Compile instructions: clipper spread /n /w
+    Displays a character string from the center out
+*/
+
+#include "grump.ch"
+
+function Spread(cMessage, nRow, nDelay, nMidPoint)
+local nLength := len(cMessage)
+local xx
+local yy
+local zz := int(nLength / 2)
+default nDelay to 10
+default nMidPoint to (maxcol() + 1) / 2
+for xx := 1 to zz
+   @ nRow, nMidPoint - xx ssay substr(cMessage, 1, xx) + ;
+                               substr(cMessage, nLength + 1 - xx, xx)
+   for yy := 1 to nDelay
+   next
+next
+//ƒƒƒƒƒ if message was of odd length, redraw entire thing now
+if nLength % 2 == 1
+   @ nRow, nMidPoint - xx ssay cMessage
+endif
+return NIL
+
+* end function Spread()
+*--------------------------------------------------------------------*
+
+* eof spread.prg
 
 * EOF RUN.PRG
