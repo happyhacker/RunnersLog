@@ -65,7 +65,7 @@
 * Description:Build util.dbf if it doesn't exist
 *...................................................................*
 * Revision: 5.0 Modified on : 01/18/2020 6:26pm
-* Description:Build with Clipper5.2 on x86 emulator on Mac!
+* Description:Build with Clipper5.2 on x86 emulator on Mac! 
 *...................................................................*
 *========================[ ALL RIGHTS RESERVED ]====================*
 **** RUN THE AD PROGRAM ****
