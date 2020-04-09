@@ -67,10 +67,13 @@
 * Revision: 5.0 Modified on : 01/18/2020 6:26pm
 * Description:Build with Clipper5.2 on x86 emulator on Mac!
 *...................................................................*
+* Revision: 5.0 Modified on : 04/08/2020 6:01pm
+* Description:Added SHDOW_BX() to make up for lack of wndo
+*...................................................................*
 *========================[ ALL RIGHTS RESERVED ]====================*
 **** RUN THE AD PROGRAM ****
 EXTERNAL wndo, hackcal, dgedefs, runovl, run1, run2, run3, run4, run5, run6,;
-   RUNGRAPH, fopen, fread, fclose, scroll
+   RUNGRAPH, fopen, fread, fclose, scroll, expbox
 
 LOCAL aUtil:={}
 PRIVATE db, xfilter, xpara, background, shadow
@@ -165,15 +168,20 @@ SETTEXT()
 
 background=REPLICATE(CHR(176),9)
 shadow=REPLICATE(CHR(219),9)
+
 SETCOLOR(wbbrbg)
 @ 0,0,24,79 BOX background
-SETCOLOR(wbgwbr)
+ SETCOLOR(wbrwbg)
 //DO wndo
+SHDOW_BX(5,12,14,67,'S')
+SETCOLOR(wbrwbg)
 SPREAD("RUNNER'S LOG VERSION 5.0 BY HACKSOFT",6)
 //SPREAD("LICIENCED TO: "+LTRIM(BLISERNUM()),8)
 SPREAD("COPYRIGHT (c) 1989, HACKSOFT ALL RIGHTS RESERVED",10)
 SPREAD("FOR TECHNICAL ASSISTANCE OR UPDATES CALL",11)
 SPREAD("(219)282-3369 OR (219)277-6993",12)
+
+SETCOLOR(wbgwbr)
 SHDOW_BX(18,23,20,53,'D')
 @ 19,26 SAY "PRESS ANY KEY TO CONTINUE"
 db:='RUN'
