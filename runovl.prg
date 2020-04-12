@@ -48,6 +48,9 @@
 * Description: Had to replace text in parameter for BOX in PAGE_RUN
 *              Corrupted? 
 *.............................................................................
+* Revision: 5.1 Modified on : 04/11/2020 9:08pm
+* Description:Updated Display or Print Specific Runs to support Century
+*.............................................................................
 ***************************** ALL RIGHTS RESERVED ****************************
 ***********************************************************************
 *!      Procedure: RUN1
@@ -350,12 +353,13 @@ IF .NOT. use_db()
    RETURN
 ENDIF
 BEGIN SEQUENCE
+   SET Century ON
    SET KEY 27 TO EXIT
    Setcolor(wbbrbg)
    SET CURSOR ON
    SET TALK OFF
    CLEAR
-   STORE SPACE(8) TO mdate1, mdate2
+   STORE SPACE(10) TO mdate1, mdate2
    STORE 0 TO counter
    STORE 0 TO msectime
    STORE 0 TO msectime1
@@ -398,9 +402,9 @@ BEGIN SEQUENCE
    @  3, 17  TO  6, 62
 
    @ 10, 7 GET date1 VALID(date1 $"><=#' '")
-   @ 10,19 GET mdate1 PICTURE "99/99/99"
+   @ 10,19 GET mdate1 PICTURE "@D"
    @ 10,51 GET date2 VALID(date2 $"><=#' '")
-   @ 10,64 GET mdate2 PICTURE "99/99/99"
+   @ 10,64 GET mdate2 PICTURE "@D"
    @ 14, 7 GET distance1 VALID(distance1 $"><=#' '")
    @ 14,21 GET mdistance1 PICTURE "999.9"
    @ 14,51 GET distance2 VALID(distance2 $"><=#' '")
@@ -426,8 +430,8 @@ BEGIN SEQUENCE
    @  8,12 SAY "DO YOU WANT 1)RACES 2)WORKOUTS OR 3)BOTH ?" GET LIST VALID(LIST $'123')
    @ 10,12 SAY "DO YOU WANT THE RUNS IN ORDER FROM FASTEST TO SLOWEST?" GET inorder PICTURE '@!' VALID(inorder $'YN')
    READ
-   SELECT 1
-   USE (db)
+   *SELECT 1
+   *USE (db)
    IF inorder = "Y"
       INDEX ON AVERAGE TO RUN
       SET INDEX TO RUN
@@ -1364,7 +1368,7 @@ BEGIN SEQUENCE
    ENDIF
    Setcolor(RB)
    ?
-   ? "         TOTAL DISTANCE:    " + STR(mdistance3,8,1) + "         AVERAGE PACE:" + IF(msectime#0,STR(avgtime,8,2),' N/A')
+   ? "           TOTAL DISTANCE:    " + STR(mdistance3,8,1) + "         AVERAGE PACE:" + IF(msectime#0,STR(avgtime,8,2),' N/A')
    ?
    xfilter = '.T.'
    Setcolor(wbwbr)
@@ -1520,12 +1524,10 @@ IF .NOT. FILE(db+'.DBF')
 ENDIF
 SELECT 1
 USE (db)
-IF FILE(db+'.NTX')
-   SET INDEX TO (db)
-ELSE
+IF .NOT. FILE(db+'.NTX')
    INDEX ON DATE TO (db)
-   SET INDEX TO (db)
 ENDIF
+SET INDEX TO (db)
 xret_val = .T.
 
 RETURN xret_val

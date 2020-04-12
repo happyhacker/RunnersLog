@@ -67,7 +67,7 @@
 * Revision: 5.0 Modified on : 01/18/2020 6:26pm
 * Description:Build with Clipper5.2 on x86 emulator on Mac!
 *...................................................................*
-* Revision: 5.0 Modified on : 04/08/2020 6:01pm
+* Revision: 5.01 Modified on : 04/08/2020 6:01pm
 * Description:Added SHDOW_BX() to make up for lack of wndo
 *...................................................................*
 *========================[ ALL RIGHTS RESERVED ]====================*
