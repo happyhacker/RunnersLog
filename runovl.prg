@@ -1034,8 +1034,10 @@ SET CURSOR ON
 SET FORMAT TO RUN
 Setcolor(wbbrbg)
 CLEAR
-@  3, 4,21,75 BOX "?ƒø?Ÿƒ¿? "
-@  0, 2, 3,77 BOX "…Õª?ºÕ»? "
+   @ 3,4 TO 21,75
+   @ 0,2 TO 3,77 DOUBLE
+*@  3, 4,21,75 BOX "?ƒø?Ÿƒ¿? "
+*@  0, 2, 3,77 BOX "…Õª?ºÕ»? "
 @ 1, 30 SAY "R U N N E R' S  L O G"
 @ 4, 17 SAY "MILES:"+SPACE(10)+"KILOMETERS:"+SPACE(10)+"TIME:  :"
 @ 6, 6 SAY "1}"+SPACE(9)+"6}"+SPACE(9)+"11}"+SPACE(9)+"16}"+SPACE(9)+"21}"+SPACE(9)+"26}"
