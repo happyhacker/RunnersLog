@@ -51,6 +51,9 @@
 * Revision: 5.1 Modified on : 04/11/2020 9:08pm
 * Description:Updated Display or Print Specific Runs to support Century
 *.............................................................................
+* Revision: 5.2 Modified on : 04/30/2020 9:29am
+* Description:Added 100th digit to distance - couldn't put in 1.25 previously
+*.............................................................................
 ***************************** ALL RIGHTS RESERVED ****************************
 ***********************************************************************
 *!      Procedure: RUN1
@@ -93,8 +96,8 @@ BEGIN SEQUENCE
    @ 4,9 SAY "RACE:    MILES:         KILOMETERS:         TIME:  :"
    @ 2,39 GET mdate PICTURE "@DK"
    @ 4,15 GET mrace PICTURE "!" VALID torf()
-   @ 4,25 GET mdistance PICTURE '99999.9' VALID dist_f()
-   @ 4,45 GET mdistancek PICTURE '99999.9' VALID dist_f2()
+   @ 4,25 GET mdistance PICTURE '9999.99' VALID dist_f()
+   @ 4,45 GET mdistancek PICTURE '9999.99' VALID dist_f2()
    @ 6,25 CLEAR TO 6,58
    @ 4,59 GET mhour PICTURE "9"
    @ 4,61 GET mminutes PICTURE "99.99" VALID val_time()
@@ -408,7 +411,7 @@ BEGIN SEQUENCE
    @ 14, 7 GET distance1 VALID(distance1 $"><=#' '")
    @ 14,21 GET mdistance1 PICTURE "999.9"
    @ 14,51 GET distance2 VALID(distance2 $"><=#' '")
-   @ 14,66 GET mdistance2 PICTURE "999.9"
+   @ 14,66 GET mdistance2 PICTURE "999.99"
    @ 18, 7 GET time1 VALID(time1 $"><=#' '")
    @ 18,19 GET mhour1 PICTURE "9"
    @ 18,21 GET mmin1 PICTURE "99.99"
@@ -550,7 +553,7 @@ BEGIN SEQUENCE
    Setcolor(wbgwbr)
    shdow_bx(6,15,12,64,'S')
    @ 7,17 SAY "DO YOU WANT 1)RACES 2)WORKOUTS OR 3)BOTH ?" GET LIST VALID(LIST $'123')
-   @  9,17 SAY "ENTER DISTANCE " GET best PICTURE "999.9"
+   @  9,17 SAY "ENTER DISTANCE " GET best PICTURE "999.99"
    @ 11,17 SAY "DISPLAY THE" GET best2 PICTURE "999"
    @ ROW(),COL()+1 SAY "BEST TIMES"
    READ
@@ -1141,9 +1144,9 @@ CASE new_log = 1
    APPEND BLANK
    REPLACE field_name WITH 'race', field_type WITH 'C', field_len WITH 1
    APPEND BLANK
-   REPLACE field_name WITH 'DISTANCE', field_type WITH 'N', field_len WITH 7, field_dec WITH 1
+   REPLACE field_name WITH 'DISTANCE', field_type WITH 'N', field_len WITH 7, field_dec WITH 2
    APPEND BLANK
-   REPLACE field_name WITH 'DISTANCEK', field_type WITH 'N', field_len WITH 7, field_dec WITH 1
+   REPLACE field_name WITH 'DISTANCEK', field_type WITH 'N', field_len WITH 7, field_dec WITH 2
    APPEND BLANK
    REPLACE field_name WITH 'HOUR', field_type WITH 'N', field_len WITH 1
    APPEND BLANK
@@ -1343,7 +1346,7 @@ BEGIN SEQUENCE
          ELSE
             raceyn = ""
          ENDIF
-         ? "  ", RECNO(), "   ", DATE, "   ", STR(distance,8,1), "      ", STR(hour),"  ", STR(minutes,5,2), "     ", STR(AVERAGE,5,2),"  ",raceyn
+         ? "  ", RECNO(), "   ", DATE, "   ", STR(distance,6,2), "      ", STR(hour),"  ", STR(minutes,5,2), "     ", STR(AVERAGE,5,2),"  ",raceyn
          counter = counter + 1
          IF counter = 18
             counter = 0
@@ -1370,7 +1373,7 @@ BEGIN SEQUENCE
    ENDIF
    Setcolor(RB)
    ?
-   ? "           TOTAL DISTANCE:    " + STR(mdistance3,8,1) + "         AVERAGE PACE:" + IF(msectime#0,STR(avgtime,8,2),' N/A')
+   ? "          TOTAL DISTANCE:    " + STR(mdistance3,7,2) + "         AVERAGE PACE:" + IF(msectime#0,STR(avgtime,8,2),' N/A')
    ?
    xfilter = '.T.'
    Setcolor(wbwbr)
@@ -1406,7 +1409,7 @@ RETURN .T.
 *!*********************************************************************
 FUNCTION dist_f
 
-mdistancek = ROUND(mdistance * 1.6093,1)
+mdistancek = ROUND(mdistance * 1.6093,2)
 
 RETURN .T.
 *!*********************************************************************
@@ -1423,9 +1426,9 @@ IF mdistance = 0 .AND. mdistancek = 0
    Setcolor(oldcolor)
    RETURN .F.
 ENDIF
-mdistance = ROUND(mdistancek * .6215,1)
+mdistance = ROUND(mdistancek * .6215,2)
 old_clr = Setcolor(brbg)
-@ 4,25 SAY mdistance PICTURE "99999.9"
+@ 4,25 SAY mdistance PICTURE "9999.99"
 Setcolor(old_clr)
 @ 6,20 SAY SPACE(41)
 
@@ -1438,10 +1441,10 @@ RETURN .T.
 FUNCTION calc_upd
 
 IF Readvar() == 'DISTANCE'
-   REPLACE distancek WITH ROUND(distance * 1.6093,1)
+   REPLACE distancek WITH ROUND(distance * 1.6093,2)
 ENDIF
 IF Readvar() == 'DISTANCEK'
-   REPLACE distance WITH ROUND(distancek * .6215,1)
+   REPLACE distance WITH ROUND(distancek * .6215,2)
 ENDIF
 
 IF distance # 0
@@ -1482,8 +1485,8 @@ IF distance # 0
    *** DISPLAY NEW VALUES ***
    old_clr = Setcolor(brbg)
 
-   @  4,24 SAY distance  PICTURE '99999.9'
-   @  4,45 SAY distancek PICTURE '99999.9'
+   @  4,24 SAY distance  PICTURE '9999.99'
+   @  4,45 SAY distancek PICTURE '9999.99'
    @ 12,31 SAY AVERAGE   PICTURE '99.99'
    @ 12,57 SAY calorie   PICTURE '99999'
    @ 13,31 SAY averagek  PICTURE '99.99'

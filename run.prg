@@ -1,25 +1,29 @@
-*============================{ RUN.PRG }=============================
+*============================{ RUN.PRG }=====================================
 * Copyright (c) 1991 Hacksoft Inc.
-*...................................................................*
+*............................................................................*
 * Revision: 0000 Modified on : 01-28-90 10:38:00pm
 * Description: Orignal creation
-*...................................................................*
+*............................................................................*
 * Revision: 3.5 Last Revised: 1/28/1990 at 22:38
 * Description:
-*...................................................................*
+*............................................................................*
 * Revision: 4.3 Last Revised: 3/22/1990 at 21:28
 * Description: Snapped system
-*...................................................................*
+*............................................................................*
 * Revision: 4.4 Modified on : 08-22-91 11:15:56pm
 * Description:Removed items that don't change so it doesn't redraw the screen
 *             when you <PgUp> or <PgDn>
+*............................................................................*
+* Revision: 5.2 Modified on : 04-30-2020 10:15am
+* Description:Changed miles and km from 1 to 2 decimal places
+
 ***************************** ALL RIGHTS RESERVED ****************************
 @ 2, 5 SAY "Record #:"+SPACE(18)+"DATE:"
 @ 2, 15 SAY RECNO() PICTURE "999999"
 @ 4, 9 SAY IF(race='Y','RACE','    ')
 @  2,38 GET DATE
-@  4,24 GET distance  PICTURE '99999.9'  VALID CALC_UPD()
-@  4,45 GET distancek PICTURE '99999.9'  VALID CALC_UPD()
+@  4,24 GET distance  PICTURE '9999.99'  VALID CALC_UPD()
+@  4,45 GET distancek PICTURE '9999.99'  VALID CALC_UPD()
 @  4,60 GET hour      PICTURE '9'        VALID CALC_UPD()
 @  4,62 GET minutes   PICTURE '99.99'    VALID CALC_UPD()
 @  6, 9 GET first     PICTURE '99.99'
