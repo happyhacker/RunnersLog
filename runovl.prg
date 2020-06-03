@@ -54,6 +54,10 @@
 * Revision: 5.2 Modified on : 04/30/2020 9:29am
 * Description:Added 100th digit to distance - couldn't put in 1.25 previously
 *.............................................................................
+* Revision: 5.21 Modified on : 06/02/2020 11:24pm
+* Description:Fixed strange bug in VAL_TIME() that didn't accept 9.59 as time
+*.............................................................................
+
 ***************************** ALL RIGHTS RESERVED ****************************
 ***********************************************************************
 *!      Procedure: RUN1
@@ -1502,7 +1506,7 @@ RETURN .T.
 *!*********************************************************************
 FUNCTION val_time
 
-IF ROUND(INT(mminutes),0) > 59 .OR. ROUND(mminutes - INT(mminutes),2) > .59
+IF ROUND(INT(mminutes),0) > 59 .OR. ROUND(mminutes - INT(mminutes),2) > .599
    oldcolor = Setcolor()
    Setcolor(bgb)
    @ 6,25 SAY "NOT A VALID TIME, PLEASE REENTER"

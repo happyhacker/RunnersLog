@@ -70,6 +70,11 @@
 * Revision: 5.01 Modified on : 04/08/2020 6:01pm
 * Description:Added SHDOW_BX() to make up for lack of wndo
 *...................................................................*
+* Revision: 5.21 Modified on : 06/02/2020 11:30pm
+* Description:Updated version to 5.21 for change to VAL_TIME in 
+*             Runovl
+*...................................................................*
+
 *========================[ ALL RIGHTS RESERVED ]====================*
 **** RUN THE AD PROGRAM ****
 EXTERNAL wndo, hackcal, dgedefs, runovl, run1, run2, run3, run4, run5, run6,;
@@ -175,7 +180,7 @@ SETCOLOR(wbbrbg)
 //DO wndo
 SHDOW_BX(5,12,14,67,'S')
 SETCOLOR(wbrwbg)
-SPREAD("RUNNER'S LOG VERSION 5.0 BY HACKSOFT",6)
+SPREAD("RUNNER'S LOG VERSION 5.21 BY HACKSOFT",6)
 //SPREAD("LICIENCED TO: "+LTRIM(BLISERNUM()),8)
 SPREAD("COPYRIGHT (c) 1989, HACKSOFT ALL RIGHTS RESERVED",10)
 SPREAD("FOR TECHNICAL ASSISTANCE OR UPDATES CALL",11)
