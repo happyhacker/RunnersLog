@@ -74,6 +74,9 @@
 * Description:Updated version to 5.21 for change to VAL_TIME in 
 *             Runovl
 *...................................................................*
+* Revision: 5.22 Modified on : 06/27/2020 12:18pm
+* Description:Set cursor off on intro screen
+*...................................................................*
 
 *========================[ ALL RIGHTS RESERVED ]====================*
 **** RUN THE AD PROGRAM ****
@@ -180,7 +183,7 @@ SETCOLOR(wbbrbg)
 //DO wndo
 SHDOW_BX(5,12,14,67,'S')
 SETCOLOR(wbrwbg)
-SPREAD("RUNNER'S LOG VERSION 5.21 BY HACKSOFT",6)
+SPREAD("RUNNER'S LOG VERSION 5.22 BY HACKSOFT",6)
 //SPREAD("LICIENCED TO: "+LTRIM(BLISERNUM()),8)
 SPREAD("COPYRIGHT (c) 1989, HACKSOFT ALL RIGHTS RESERVED",10)
 SPREAD("FOR TECHNICAL ASSISTANCE OR UPDATES CALL",11)
@@ -188,6 +191,7 @@ SPREAD("(219)282-3369 OR (219)277-6993",12)
 
 SETCOLOR(wbgwbr)
 SHDOW_BX(18,23,20,53,'D')
+SET CURSOR OFF
 @ 19,26 SAY "PRESS ANY KEY TO CONTINUE"
 db:='RUN'
 USE_DB()
