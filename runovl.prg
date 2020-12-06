@@ -57,6 +57,10 @@
 * Revision: 5.21 Modified on : 06/02/2020 11:24pm
 * Description:Fixed strange bug in VAL_TIME() that didn't accept 9.59 as time
 *.............................................................................
+* Revision: 5.23 Modified on : 12/06/2020 1:03am
+* Description:Fixed printout for 3 & 4 by setting CENTUARY ON at top if
+*             Runner.prg
+*.............................................................................
 
 ***************************** ALL RIGHTS RESERVED ****************************
 ***********************************************************************
@@ -80,7 +84,6 @@ BEGIN SEQUENCE
    SET KEY 27 TO EXIT
    SET CURSOR ON
    SETCOLOR(wbbrbg)
-   SET Century ON
    CLEAR
    SET Century ON
    STORE DATE() TO mdate
@@ -580,7 +583,7 @@ BEGIN SEQUENCE
       raceyn = IF(race = "Y",'RACE','')
       IF distance = best .AND. sectime > 0 .AND. &race
          counter = counter + 1
-         ? "  ", RECNO(), "   ", DATE, "   ", STR(distance,8,1), "      ", STR(hour),"  ", STR(minutes,5,2), "     ", STR(AVERAGE,5,2),"  ",raceyn
+         ? "  ", RECNO(), "   ", DATE, " ", STR(distance,8,1), "      ", STR(hour),"  ", STR(minutes,5,2), "     ", STR(AVERAGE,5,2),"  ",raceyn
          REPLACE tag WITH .T.
       ENDIF
       SKIP

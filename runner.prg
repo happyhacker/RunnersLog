@@ -77,6 +77,9 @@
 * Revision: 5.22 Modified on : 06/27/2020 12:18pm
 * Description:Set cursor off on intro screen
 *...................................................................*
+* Revision: 5.23 Modified on : 12/06/2020 1:03am
+* Description:SET CENTUARY ON which was causing printing differences
+*...................................................................*
 
 *========================[ ALL RIGHTS RESERVED ]====================*
 **** RUN THE AD PROGRAM ****
@@ -98,6 +101,7 @@ SET SCOREBOARD OFF
 SET BELL OFF
 SET ESCAPE ON
 SET CONFIRM OFF
+SET CENTURY ON
 
 IF .NOT. FILE('UTIL.DBF')
    AADD(aUtil,{'NAME'     ,'C',10,0})
@@ -183,7 +187,7 @@ SETCOLOR(wbbrbg)
 //DO wndo
 SHDOW_BX(5,12,14,67,'S')
 SETCOLOR(wbrwbg)
-SPREAD("RUNNER'S LOG VERSION 5.22 BY HACKSOFT",6)
+SPREAD("RUNNER'S LOG VERSION 5.23 BY HACKSOFT",6)
 //SPREAD("LICIENCED TO: "+LTRIM(BLISERNUM()),8)
 SPREAD("COPYRIGHT (c) 1989, HACKSOFT ALL RIGHTS RESERVED",10)
 SPREAD("FOR TECHNICAL ASSISTANCE OR UPDATES CALL",11)
