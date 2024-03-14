@@ -658,6 +658,8 @@ USE
 
 getout = .F.
 SELECT 1                                         && DB DATABASE
+INDEX ON DATE TO ONDATE DESC
+
 GO TOP
 DECLARE arry1[47], arry2[47]
 arry1[1] =  'IF(TAG," û ","   ")'
