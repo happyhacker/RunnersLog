@@ -658,7 +658,6 @@ USE
 
 getout = .F.
 SELECT 1                                         && DB DATABASE
-INDEX ON DATE TO ONDATE DESC
 
 GO TOP
 DECLARE arry1[47], arry2[47]
@@ -1539,7 +1538,7 @@ ENDIF
 SELECT 1
 USE (db)
 IF .NOT. FILE(db+'.NTX')
-   INDEX ON DATE TO (db)
+   INDEX ON DATE TO (db) DESC
 ENDIF
 SET INDEX TO (db)
 xret_val = .T.
