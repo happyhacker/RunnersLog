@@ -195,7 +195,8 @@ DO WHILE I <= nanylen
 ENDDO
 * HIGH RESOLUTION SWITCHING
 * ---------------------------------------------
-SETVIDEO(driverid)
+SETVIDEO(6)
+*driverid
 SETHIRES(0)
 CLRSCREEN()
 SETPAL(0, 0, 0)

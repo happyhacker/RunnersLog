@@ -83,8 +83,9 @@
 
 *========================[ ALL RIGHTS RESERVED ]====================*
 **** RUN THE AD PROGRAM ****
-EXTERNAL wndo, hackcal, dgedefs, runovl, run1, run2, run3, run4, run5, run6,;
-   RUNGRAPH, fopen, fread, fclose, scroll, expbox
+EXTERNAL hackcal, dgedefs, runovl, run1, run2, run3, run4, run5, run6,;
+   RUNGRAPH, fopen, fread, fclose, scroll
+   //, expbox
 
 LOCAL aUtil:={}
 PRIVATE db, xfilter, xpara, background, shadow
@@ -153,15 +154,19 @@ ELSE
    brbg = "W/N"
 ENDIF
 
-/*xvid:=GETVIDEO(0)
+xvid:=GETVIDEO(0)
 IF xvid >= 6
    IF FILE('RUNEGA.PIC')
       DO dgedefs                                        && DGE
       setvideo(6)
-      sethires(0)
-      *PICREAD(0,0,0,'RUNEGA.PCX')
-      diskfile(0,'RUNEGA.PIC')
-      INKEY(3)
+      *r=SetGMode(6)
+      SetHiRes(0)
+      s=ClrScreen()
+
+      PICREAD(0,0,0,'RUNMAN.PCX')
+      //diskfile(0,'RUNEGA.PIC')
+      INKEY(0)
+      SetText()
    ENDIF
 ENDIF
 IF xvid==4
@@ -176,7 +181,7 @@ IF xvid==4
    ENDIF
 ENDIF
 SETTEXT()
-*/
+
 
 background=REPLICATE(CHR(176),9)
 shadow=REPLICATE(CHR(219),9)
@@ -204,7 +209,7 @@ INKEY(0)
 //BLIMEMPAK(10)                                 && BLINKER FUNCTION
 SET KEY -1 TO HACKCAL                         && CALANDER
 SET KEY 306 TO SHOWMEM                        && ALT-M
-SET KEY 274 TO ENV_STATUS                     && ALT-E
+//SET KEY 274 TO ENV_STATUS                     && ALT-E
 
 DO WHILE .T.
 //   BLIOVLCLR()
