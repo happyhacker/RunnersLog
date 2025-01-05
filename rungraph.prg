@@ -26,6 +26,9 @@
 * Revision: 4.4 Modified on : 08-23-91 00:26:59am
 * Description:Changed ?? tone() + tone() to two lines/ worked in 87
 *             crashes in 5.01
+*...................................................................*
+* Revision: 4.5 Modified on : 01/05/25 00:35am
+* Description:Added DGE graphics back in!!
 *========================[ ALL RIGHTS RESERVED ]====================*
 IF .NOT. use_db()
    RETURN
@@ -672,7 +675,8 @@ ENDDO
 * ---------------------------------------------
 CLRSCREEN()
 SETTEXT()
-USE
+*USE 1/5/25 0:38
+SET CURSOR OFF
 RETURN
 
 ***********************************************

@@ -80,7 +80,9 @@
 * Revision: 5.23 Modified on : 12/06/2020 1:03am
 * Description:SET CENTUARY ON which was causing printing differences
 *...................................................................*
-
+* Revision: 5.24 Modified on : 01/05/2025 12:50am
+* Description:Added DGE graphics back in!! So excited!!
+*...................................................................*
 *========================[ ALL RIGHTS RESERVED ]====================*
 **** RUN THE AD PROGRAM ****
 EXTERNAL hackcal, dgedefs, runovl, run1, run2, run3, run4, run5, run6,;
@@ -157,15 +159,16 @@ ENDIF
 xvid:=GETVIDEO(0)
 IF xvid >= 6
    IF FILE('RUNEGA.PIC')
-      DO dgedefs                                        && DGE
-      setvideo(6)
-      *r=SetGMode(6)
-      SetHiRes(0)
-      s=ClrScreen()
-
+      DO dgedefs                                        && DGE dgedefs.ch - compile it to obj
+      r=setvideo(1)
+      r=SetGMode(16)
+      SetHiRes(0)  
+      SetRgbDac(36,255,255,255)
+      SetRGBPal(0,36)   
+      ClrScreen()
       PICREAD(0,0,0,'RUNMAN.PCX')
       //diskfile(0,'RUNEGA.PIC')
-      INKEY(0)
+      INKEY(1)
       SetText()
    ENDIF
 ENDIF
@@ -175,13 +178,12 @@ IF xvid==4
       xvid = 5
       setvideo(xvid)
       sethires(0)
-      *PICREAD(0,0,0,'RUNCGA.PCX')
-      diskfile(0,'RUNCGA.PIC')
+      PICREAD(0,0,0,'RUNMAN.PCX')
+      //diskfile(0,'RUNCGA.PIC')
       INKEY(3)
    ENDIF
 ENDIF
 SETTEXT()
-
 
 background=REPLICATE(CHR(176),9)
 shadow=REPLICATE(CHR(219),9)
