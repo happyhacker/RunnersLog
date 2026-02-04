@@ -1,5 +1,7 @@
 # Runner's Log
 
+![Runner's Log](runman.png)
+
 A vintage fitness tracking application for runners and walkers, built with Clipper 5.x for DOS.
 
 **Developed by Hacksoft Inc. (1989-2025)**
